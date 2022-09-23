@@ -9,7 +9,4 @@ class Solution:
                 count[ord(c)-ord('a')] += 1
             letters[tuple(count)].append(s)
 
-        ans = []
-        for key,value in letters.items():
-            ans.append(value)
-        return ans
+        return letters.values()

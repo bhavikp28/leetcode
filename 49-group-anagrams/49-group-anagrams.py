@@ -1,0 +1,15 @@
+from collections import defaultdict
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        letters = defaultdict(list)
+
+        for s in strs:
+            count = [0] * 26
+            for c in s:
+                count[ord(c)-ord('a')] += 1
+            letters[tuple(count)].append(s)
+
+        ans = []
+        for key,value in letters.items():
+            ans.append(value)
+        return ans

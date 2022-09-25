@@ -10,11 +10,6 @@ class Solution:
             maxarea = max(maxarea,area)
             if height[l] < height[r]:
                 l += 1
-            elif height[l] > height[r]:
+            else:
                 r -=1
-            elif height[l] == height[r]:
-                if height[l+1] >= height[r-1]:
-                    l += 1
-                else:
-                    r -= 1
         return(maxarea)

@@ -9,8 +9,9 @@ class Solution:
         #if not root:
             #return 0
         
-        #return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right))
+        #return 1 + max(self.maxDepth(root.left),self.maxDepth(root.right)) 
         
+        '''
         if not root:
             return 0
         
@@ -25,4 +26,18 @@ class Solution:
                 if node.right:
                     q.append(node.right)
             level += 1
+        return level'''
+        
+        if not root:
+            return 0
+        
+        level = 1
+        stack = [[root,1]]
+        while stack:
+            node, depth = stack.pop()
+            
+            if node:
+                level = max(level,depth)
+                stack.append([node.right,(depth + 1)])
+                stack.append([node.left,(depth + 1)])
         return level

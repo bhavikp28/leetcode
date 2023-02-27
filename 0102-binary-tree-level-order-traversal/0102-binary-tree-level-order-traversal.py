@@ -7,6 +7,7 @@
 from collections import deque
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        '''
         ans = []
         queue = deque()
         if root:
@@ -23,4 +24,18 @@ class Solution:
                     queue.append(cur.right)
             level += 1
             ans.append(lvl)
-        return(ans)
+        return(ans)'''
+    
+        output =[]
+        if not root:
+            return output
+        def helper(node,level):
+            if len(output) == level:
+                output.append([])
+            output[level].append(node.val)
+            if node.left:
+                helper(node.left,level + 1)
+            if node.right:
+                helper(node.right,level +1)
+        helper(root,0)
+        return output

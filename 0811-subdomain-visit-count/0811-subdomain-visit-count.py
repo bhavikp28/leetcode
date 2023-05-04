@@ -8,11 +8,4 @@ class Solution:
             frag = dom.split('.')
             for i in range(len(frag)):
                 counts['.'.join(frag[i:])] += count
-        for key,value in counts.items():
-            v = str(value)
-            s = ''
-            s += v
-            s += ' '
-            s += key
-            ans.append(s)
-        return(ans)
+        return [f'{count} {domain}' for domain,count in counts.items()]

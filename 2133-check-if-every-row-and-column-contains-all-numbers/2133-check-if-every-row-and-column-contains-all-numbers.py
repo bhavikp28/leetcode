@@ -1,17 +1,19 @@
 class Solution:
     def checkValid(self, matrix: List[List[int]]) -> bool:
-        for i in matrix:
-            hmap = {}
-            for j in i:
-                if j >= 1 and j <= len(matrix) and j not in hmap:
-                    hmap[j] = 1
+        for i in range(len(matrix)):
+            used = set()
+            for j in range(len(matrix)):
+                elm = matrix[i][j]
+                if elm >= 1 and elm <= len(matrix) and elm not in used:
+                    used.add(elm)
                 else:
                     return False
         for i in range(len(matrix)):
-            hmap = {}
+            used = set()
             for j in range(len(matrix)):
-                if matrix[j][i] >= 1 and matrix[j][i] <= len(matrix) and matrix[j][i] not in hmap:
-                    hmap[matrix[j][i]] = 1
+                elm = matrix[j][i]
+                if elm >= 1 and elm <= len(matrix) and elm not in used:
+                    used.add(elm)
                 else:
                     return False
         return True
